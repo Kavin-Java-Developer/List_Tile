@@ -13,32 +13,70 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
           floatingActionButton: FloatingActionButton(
-            backgroundColor: Colors.teal,
+            backgroundColor: Color(0xFF25D366),
             onPressed: () {},
-            child: Icon(
-              Icons.message,
-              color: Colors.black,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Icon(Icons.chat_bubble,
+                    color: Colors.white, size: 28), // Chat bubble icon
+                Positioned(
+                  bottom: 7, // Adjust position as needed
+                  child: Icon(Icons.add,
+                      color: Color(0xFF25D366), size: 18), // Plus icon
+                ),
+              ],
             ),
           ),
-          drawer: Drawer(),
           appBar: AppBar(
-            title: Text('WhatsApp'),
-            backgroundColor: Colors.teal,
+            title: Text(
+              'WhatsApp',
+              style: TextStyle(
+                  color: Colors.greenAccent,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 30),
+            ),
             actions: [
-              Icon(Icons.camera_alt_sharp),
+              Icon(Icons.qr_code_scanner),
               SizedBox(
                 width: 20,
               ),
-              Icon(Icons.search),
+              Icon(Icons.camera_alt),
               SizedBox(
                 width: 20,
               ),
               Icon(Icons.more_vert),
+              SizedBox(
+                width: 10,
+              ),
             ],
           ),
           body: SingleChildScrollView(
             child: Column(
               children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextField(
+                    decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.grey[200],
+                        prefixIcon: Icon(
+                          Icons.search,
+                          color: Colors.grey,
+                        ),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(25.0),
+                            borderSide: BorderSide.none),
+                        hintText: 'Search...',
+                        hintStyle: TextStyle(
+                          color: Colors.grey,
+                        ),
+                        contentPadding: EdgeInsets.all(10)),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
                 ListTileBuilding('Kavin', 'Mine',
                     'https://t3.ftcdn.net/jpg/02/43/12/34/360_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg'),
                 ListTileBuilding('Devanth', 'Hi Maapla',
